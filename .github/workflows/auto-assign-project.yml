@@ -1,0 +1,29 @@
+name: Create Card on Infra
+
+on:
+  issues:
+    types: [opened]
+
+env:
+  MY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  createCard_v2:
+    runs-on: ubuntu-latest
+    name: Assign NEW issues to BETA project
+    steps:
+    - name: Assign NEW issues to BETA project 1
+      uses: srggrs/assign-one-project-github-action@1.2.1
+      with:
+        project: 'https://github.com/users/BogomilKruzicVolue/projects/1'
+        column_name: 'Todo'
+  createCard_v1:
+    runs-on: ubuntu-latest
+    name: Assign NEW issues to OLD project
+    steps:
+    - name: Assign NEW issues to OLD project
+      uses: srggrs/assign-one-project-github-action@1.2.1
+      with:
+        project: 'https://github.com/BogomilKruzicVolue/github-actions-board/projects/1'
+        column_name: 'Todo'
